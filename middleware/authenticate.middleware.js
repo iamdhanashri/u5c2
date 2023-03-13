@@ -9,7 +9,7 @@ const authenticate=(req,res,next)=>{
     if(!token){
       return res.status(401).json({"msg":"unauthorized"})  
     }
-    jwt.verify(token,process.env.key,(err,user)=>{
+    jwt.verify(token,"secretKey",(err,user)=>{
         if(err){
       return res.status(401).json({"msg":"unauthorized"})  
             
